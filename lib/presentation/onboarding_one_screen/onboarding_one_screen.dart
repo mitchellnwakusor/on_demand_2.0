@@ -14,8 +14,14 @@ class OnboardingOneScreen extends StatelessWidget {
 
   int sliderIndex = 1;
 
+
   @override
   Widget build(BuildContext context) {
+
+    FirebaseUIAuth.configureProviders([
+      EmailAuthProvider(),
+      // ... other providers
+    ]);
     mediaQueryData = MediaQuery.of(context);
     return SafeArea(
         child: Scaffold(
@@ -31,9 +37,6 @@ class OnboardingOneScreen extends StatelessWidget {
             ]),
             body:
             SignInScreen(
-              providers: [
-                EmailAuthProvider()
-              ],
             )
 
             // Container(
